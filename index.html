@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
+    <meta name="description" content="Invitation de Mariage - Youssef & Amina. Rejoignez-nous pour célébrer notre union le 16 août 2026.">
+    <meta name="theme-color" content="#94a0b1">
+    <title>Invitation de Mariage - Youssef & Amina</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Lora:ital@0;1&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* =============== DESIGN TOKENS =============== */
+        :root {
+            --deep-bordeaux: #e2a8a6;
+            --soft-beige: #efe0c8;
+            --beige-light: #d1c5b4;
+            --gold-accent: #c9a96e;
+            --gold-bright: #e5c884;
+          --shadow-soft: 0 25px 60px rgba(138, 43, 77, 0.35);
+            --transition-smooth: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --text-dark: #32302e;
+
+            /* Responsive spacing scale */
+            --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+            --space-sm: clamp(0.5rem, 1vw, 1rem);
+            --space-md: clamp(1rem, 2vw, 2rem);
+            --space-lg: clamp(1.5rem, 3vw, 3rem);
+            --space-xl: clamp(2rem, 4vw, 4rem);
+            --space-2xl: clamp(2.5rem, 5vw, 5rem);
+
+            /* Fluid font sizes */
+            --fs-body: clamp(0.9rem, 1.2vw, 1.1rem);
+            --fs-sm: clamp(0.8rem, 1vw, 0.95rem);
+            --fs-lg: clamp(1.1rem, 1.8vw, 1.5rem);
+            --fs-xl: clamp(1.4rem, 2.5vw, 2rem);
+            --fs-hero: clamp(2.6rem, 8vw, 6rem);
+            --fs-hero-sub: clamp(1rem, 2.5vw, 1.5rem);
+            --fs-section-title: clamp(2rem, 5vw, 3.4rem);
+            --fs-countdown: clamp(1.8rem, 4vw, 2.9rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Aref Ruqaa', 'Lora', serif;
+            background-color: var(--deep-bordeaux);
+            color: var(--soft-beige);
+            overflow-x: hidden;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* =============== MUSIC TOGGLE =============== */
+        .music-toggle {
+            position: fixed;
+            top: max(16px, env(safe-area-inset-top, 16px));
+            right: max(16px, env(safe-area-inset-right, 16px));
+            width: clamp(40px, 6vw, 50px);
+            height: clamp(40px, 6vw, 50px);
+            background: rgba(239, 224, 200, 0.08);
+            border: 1px solid rgba(201, 169, 110, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 200;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+            transition: all 0.35s ease;
+            touch-action: manipulation;
+        }
+
+        .music-toggle:hover,
+        .music-toggle:focus-visible {
+            transform: scale(1.08);
+            border-color: var(--gold-accent);
+            background: rgba(239, 224, 200, 0.15);
+            outline: none;
+        }
+
+        .music-toggle:active {
+            transform: scale(0.95);
+        }
+
+        .music-toggle svg {
+            width: clamp(18px, 3vw, 24px);
+            height: clamp(18px, 3vw, 24px);
+            stroke: var(--gold-accent);
+            fill: none;
+            stroke-width: 1.6;
+        }
+
+        .music-toggle.playing {
+            animation: musicPulse 1.9s ease-in-out infinite;
+            border-color: var(--gold-bright);
+        }
+
+        @keyframes musicPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.55); }
+            50% { box-shadow: 0 0 0 14px rgba(201, 169, 110, 0); }
+        }
+
+        /* =============== HERO (ENVELOPPE FERMÉE) =============== */
+        .hero {
+            background-image: url("3.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            z-index: 100;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.7s ease, visibility 0.7s ease, transform 0.8s cubic-bezier(0.55, 0, 0.1, 1);
+            overflow: hidden;
+            will-change: transform, opacity;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(50, 30, 20, 0.15);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero.hero-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: scale(1.08);
+            filter: blur(6px);
+            transition: opacity 0.9s ease, visibility 0.9s ease, transform 1s cubic-bezier(0.55, 0, 0.1, 1), filter 0.8s ease;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            pointer-events: none;
+        }
+
+        .envelope-img {
+            display: block;
+            width: min(90vw, 340px);
+            height: auto;
+           filter: drop-shadow(0 15px 30px rgba(155, 75, 97, 0.35));
+            animation: envelopeEntrance 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            transform-origin: center center;
+            will-change: transform, opacity;
+        }
+
+        @keyframes envelopeEntrance {
+            0% { opacity: 0; transform: translateY(70px) scale(0.85) rotate(-2deg); }
+            60% { opacity: 1; transform: translateY(-8px) scale(1.02) rotate(0.5deg); }
+            80% { transform: translateY(3px) scale(0.99) rotate(-0.2deg); }
+            100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .envelope-img {
+                animation: envelopeEntrance 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards,
+                           gentleFloatEnvelope 3.2s ease-in-out 1.4s infinite;
+            }
+        }
+
+        @keyframes gentleFloatEnvelope {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-click-hint {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+            letter-spacing: 0.12em;
+            color: var(--deep-bordeaux);
+            background: rgba(239, 224, 200, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 0.5rem 1.8rem;
+            border-radius: 40px;
+            display: inline-block;
+            border: 1px solid rgba(201, 169, 110, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* =============== MAIN CONTENT =============== */
+        .main-wrapper {
+            position: relative;
+            z-index: 10;
+            background: var(--deep-bordeaux);
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding-top: 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.1s ease 0.25s, transform 1.1s ease 0.25s;
+        }
+
+        .main-wrapper.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =============== ANIMATION LUXE PREMIÈRE PHOTO =============== */
+        .luxe-reveal-photo {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .luxe-reveal-photo img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            filter: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+            image-rendering: auto;
+        }
+
+        .luxe-reveal-photo::before,
+        .luxe-reveal-photo::after {
+            display: none;
+        }
+
+        .luxe-frame {
+            display: none;
+        }
+
+        /* =============== SECTION GÉNÉRALE =============== */
+        .section {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            padding: var(--space-xl) var(--space-md);
+            text-align: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+            background-image: url("3.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            overflow: hidden;
+        }
+
+        .section-cal {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            padding: var(--space-xl) var(--space-md);
+            text-align: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+            background-image: url("4.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            overflow: hidden;
+        }
+
+        /* =============== DRESS CODE SECTION =============== */
+        .section-dresscode {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            padding: var(--space-xl) var(--space-md);
+            text-align: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+            background-image: url("9.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            overflow: hidden;
+        }
+
+        .dresscode-photo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: var(--space-md) auto;
+            max-width: 320px;
+            width: 80%;
+            padding: 6px;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #d4af37, #f3e5ab, #c9a96e, #e5c884, #b8943a);
+            box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.35), 0 20px 45px rgba(0,0,0,0.45), inset 0 0 25px rgba(255,215,0,0.2);
+            animation: goldShimmer 3.5s ease-in-out infinite;
+            transition: all 0.5s ease;
+        }
+
+        .dresscode-photo-wrapper:hover {
+            box-shadow: 0 0 0 6px rgba(229, 200, 132, 0.55), 0 28px 55px rgba(0,0,0,0.55), inset 0 0 35px rgba(255,215,0,0.35);
+            transform: translateY(-4px);
+        }
+
+        @keyframes goldShimmer {
+            0%, 100% {
+                box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.35), 0 20px 45px rgba(0,0,0,0.45), inset 0 0 25px rgba(255,215,0,0.2);
+            }
+            50% {
+                box-shadow: 0 0 0 4px rgba(229, 200, 132, 0.7), 0 22px 50px rgba(201, 169, 110, 0.55), inset 0 0 40px rgba(255,215,0,0.4);
+            }
+        }
+
+        .dresscode-photo {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 3px solid rgba(255,255,255,0.35);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+            background: #fdf8f0;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Dorure supplémentaire aux coins */
+        .dresscode-photo-wrapper::before,
+        .dresscode-photo-wrapper::after {
+            content: '';
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            border: 3px solid var(--gold-bright);
+            border-radius: 50%;
+            background: rgba(255,215,0,0.15);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .dresscode-photo-wrapper::before {
+            top: -10px;
+            left: -10px;
+            box-shadow: 0 0 12px rgba(201,169,110,0.7);
+        }
+
+        .dresscode-photo-wrapper::after {
+            bottom: -10px;
+            right: -10px;
+            box-shadow: 0 0 12px rgba(201,169,110,0.7);
+        }
+
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: var(--fs-section-title);
+            color: var(--text-dark);
+            margin-top: 0;
+            margin-bottom: 0.25em;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+        }
+
+        .section-description {
+            font-family: 'Aref Ruqaa', serif;
+            letter-spacing: 0.05em;
+            color: var(--text-dark);
+            margin-bottom: 0.6rem;
+            font-size: var(--fs-body);
+            max-width: 600px;
+            padding: 0 var(--space-sm);
+        }
+
+        /* =============== TYPEWRITER =============== */
+        .typewriter-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typewriter-text {
+            display: inline-block;
+            overflow: hidden;
+            white-space: normal;
+            word-wrap: break-word;
+            border-right: 3px solid var(--gold-accent);
+            animation: blinkCaret 0.75s step-end infinite;
+            max-width: 100%;
+        }
+
+        .typewriter-text.typing-done {
+            border-right: none;
+            animation: none;
+        }
+
+        @keyframes blinkCaret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--gold-accent); }
+        }
+
+        /* =============== COUNTDOWN =============== */
+        .countdown-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+            animation: escapadeGlow 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes escapadeGlow {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.5; }
+            25% { transform: translate(3%, -2%) rotate(1deg); opacity: 0.8; }
+            50% { transform: translate(-2%, 3%) rotate(-1deg); opacity: 0.6; }
+            75% { transform: translate(-3%, -1%) rotate(0.5deg); opacity: 0.9; }
+        }
+
+        .countdown-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(1rem, 2.5vw, 2rem);
+            margin-top: var(--space-md);
+            padding: 0 var(--space-sm);
+            position: relative;
+            z-index: 1;
+        }
+
+        .countdown-item {
+            position: relative;
+            background: rgba(239, 224, 200, 0.05);
+            border: 2px solid rgba(201, 169, 110, 0.4);
+            border-radius: 50%;
+            width: clamp(90px, 14vw, 130px);
+            height: clamp(90px, 14vw, 130px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 0 30px rgba(201, 169, 110, 0.05);
+            animation: circlePulse 4s ease-in-out infinite;
+        }
+
+        .countdown-item:nth-child(1) { animation-delay: 0s; }
+        .countdown-item:nth-child(2) { animation-delay: 0.4s; }
+        .countdown-item:nth-child(3) { animation-delay: 0.8s; }
+        .countdown-item:nth-child(4) { animation-delay: 1.2s; }
+
+        @keyframes circlePulse {
+            0%, 100% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 0 30px rgba(201, 169, 110, 0.05); transform: translateY(0); }
+            50% { box-shadow: 0 12px 40px rgba(201, 169, 110, 0.25), inset 0 0 40px rgba(201, 169, 110, 0.1); transform: translateY(-8px); }
+        }
+
+        .countdown-number {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1;
+            z-index: 1;
+        }
+
+        .countdown-label {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: clamp(0.7rem, 1vw, 0.85rem);
+            letter-spacing: 0.1em;
+            color: var(--gold-accent);
+            margin-top: 0.3rem;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+
+        /* =============== LOCATION =============== */
+        .location-icon i {
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            color: var(--gold-accent);
+        }
+
+        .location-name {
+            font-size: var(--fs-lg) !important;
+            color: var(--text-dark) !important;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .location-address {
+            color: var(--text-dark) !important;
+            font-size: var(--fs-body);
+            max-width: 500px;
+            padding: 0 var(--space-sm);
+        }
+
+        .location-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: var(--space-sm);
+            margin-bottom: var(--space-md);
+            padding: clamp(0.65rem, 1.5vw, 0.8rem) clamp(1.4rem, 3vw, 2rem);
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-accent);
+            font-family: 'Aref Ruqaa', serif;
+            font-size: var(--fs-body);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            border-radius: 50px;
+            background: transparent;
+            transition: all 0.4s ease;
+            touch-action: manipulation;
+        }
+
+        .location-btn:hover {
+            background: rgba(201, 169, 110, 0.18);
+            box-shadow: 0 0 28px rgba(201, 169, 110, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* =============== BOUTON AGENDA / RSVP =============== */
+        .calendar-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem 2.5rem 2rem;
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-accent);
+            font-family: 'Aref Ruqaa', serif;
+            font-size: var(--fs-body);
+            letter-spacing: 0.05em;
+            border-radius: 50px;
+            margin-top: 90%;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            background-image: url('bg-button.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            background-color: rgba(239, 224, 200, 0.15);
+        }
+
+        .calendar-btn::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: auto;
+            background-image: url('ornement-bas.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            pointer-events: none;
+        }
+
+        .calendar-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 28px rgba(201, 169, 110, 0.4);
+            filter: brightness(1.05);
+        }
+
+        /* =============== MODALE RSVP =============== */
+        .rsvp-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .rsvp-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .rsvp-modal {
+            background: #fdf8f0;
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 460px;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.25), 0 0 0 1px rgba(201,169,110,0.3);
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+            text-align: center;
+            color: #e2a8a6;
+        }
+
+        .rsvp-modal-overlay.active .rsvp-modal {
+            transform: translateY(0);
+        }
+
+        .rsvp-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #8b7355;
+        }
+
+        .rsvp-modal h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.4rem;
+            color: #6d4c41;
+            margin-bottom: 8px;
+        }
+
+        .rsvp-modal p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: #5e4b3c;
+            margin-bottom: 24px;
+        }
+
+        .rsvp-form .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .rsvp-form label {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            color: #3e362e;
+            font-size: 0.95rem;
+        }
+
+        .rsvp-form input[type="text"],
+        .rsvp-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(201,169,110,0.4);
+            border-radius: 14px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.7);
+        }
+
+        .rsvp-radio-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .rsvp-radio-option {
+            flex: 1;
+            min-width: 120px;
+            position: relative;
+        }
+
+        .rsvp-radio-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .rsvp-radio-option label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 10px;
+            border: 1px solid rgba(201,169,110,0.4);
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 500;
+            background: rgba(255,255,255,0.6);
+            transition: all 0.25s;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .rsvp-radio-option input:checked + label {
+            background: #7c5e4b;
+            color: #fff;
+            border-color: #7c5e4b;
+            box-shadow: 0 4px 12px rgba(124,83,96,0.3);
+        }
+
+        .rsvp-submit-btn {
+            background: #7c5e4b;
+            color: #fff;
+            border: none;
+            padding: 14px 36px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(89,11,47,0.2);
+        }
+
+        .rsvp-submit-btn:hover {
+            background: #5a3e31;
+            transform: translateY(-2px);
+        }
+
+        .rsvp-confirmation {
+            display: none;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .rsvp-confirmation.active {
+            display: block;
+        }
+
+        .rsvp-confirmation h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #6d4c41;
+        }
+
+        /* =============== PARTICLES =============== */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 150;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            opacity: 0;
+            animation: fall linear infinite;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+            will-change: transform, opacity;
+        }
+
+        @keyframes fall {
+            0% { opacity: 0; transform: translateY(-40px) rotate(0deg) scale(0.5); }
+            8% { opacity: 0.8; }
+            85% { opacity: 0.5; }
+            100% { opacity: 0; transform: translateY(105vh) rotate(540deg) scale(1.2); }
+        }
+
+        /* =============== RESPONSIVE =============== */
+        @media (max-width: 479px) {
+            .envelope-img { width: 100vw; max-width: 260px; }
+            .hero-click-hint { font-size: 0.85rem; padding: 0.4rem 1.4rem; }
+            .countdown-item { width: clamp(70px, 18vw, 85px); height: clamp(70px, 18vw, 85px); }
+            .countdown-number { font-size: 1.4rem; }
+            .section { min-height: auto; padding-top: 3rem; padding-bottom: 3rem; }
+            .section-cal { min-height: auto; padding-top: 3rem; padding-bottom: 3rem; }
+            .section-dresscode { min-height: auto; padding-top: 3rem; padding-bottom: 3rem; }
+            .dresscode-photo-wrapper { max-width: 260px; width: 85%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- BOUTON MUSIQUE -->
+    <button class="music-toggle" id="musicToggle" onclick="toggleMusic()" title="Activer / Couper la musique" aria-label="Basculer la musique">
+        <svg id="musicIconOff" viewBox="0 0 24 24" style="display:block" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+        <svg id="musicIconOn" viewBox="0 0 24 24" style="display:none" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    </button>
+    <audio id="weddingMusic" src="musique.mp3" loop preload="auto"></audio>
+
+    <!-- PÉTALES -->
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <!-- HERO (ENVELOPPE FERMÉE) -->
+    <div class="hero" id="heroScreen" role="button" tabindex="0" aria-label="Cliquez pour ouvrir l'invitation">
+        <div class="hero-content">
+             <h2 class="section-title reveal typewriter-container">
+                <span class="typewriter-text" data-text="You're invited">You're invited</span>
+            </h2>
+            <img src="envelope.png" alt="Enveloppe d'invitation - Cliquez pour ouvrir" class="envelope-img">
+           
+            <span class="hero-click-hint">Click to open</span>
+        </div>
+    </div>
+
+    <!-- CONTENU PRINCIPAL -->
+    <div class="main-wrapper" id="mainContent">
+        <section class="luxe-reveal-photo" style="position: relative;">
+            <img src="1.png" alt="Photo de mariage de Youssef et Amina" style="display: block; width: 100%; height: auto;">
+            <div class="luxe-frame"></div>
+        </section>
+          <section class="luxe-reveal-photo" style="position: relative;">
+            <img src="7.png" alt="Photo de mariage de Youssef et Amina" style="display: block; width: 100%; height: auto;">
+            <div class="luxe-frame"></div>
+        </section>
+
+          <section class="section-dresscode">
+            <h2 class="section-title reveal typewriter-container">
+                <span class="typewriter-text" data-text="Dress Code">Dress Code</span>
+            </h2>
+          
+
+            <!-- Photo avec cadre doré -->
+            <div class="dresscode-photo-wrapper reveal">
+                <img src="code.jpg" alt="Inspiration tenue de mariage - Dress code" class="dresscode-photo">
+            </div>
+
+          
+        </section>
+
+
+        <section class="section countdown-section">
+            <h2 class="section-title reveal typewriter-container">
+                <span class="typewriter-text" data-text="The Celebration Begins">The Celebration Begins</span>
+            </h2>
+            <p class="section-description reveal typewriter-container">
+              <span class="typewriter-text" data-text="Every moment brings us closer to the long-awaited day">
+    Every moment brings us closer to the long-awaited day
+</span>
+            </p>
+            <div class="countdown-grid reveal" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item seconds-circle" id="secondsCircle">
+                    <div class="countdown-circle-inner"></div>
+                    <svg class="seconds-progress-ring" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="46" stroke="rgba(201,169,110,0.15)" stroke-width="2" fill="none"/>
+                        <circle cx="50" cy="50" r="46" stroke="var(--gold-bright)" stroke-width="2.5" fill="none" 
+                                stroke-dasharray="289.03" stroke-dashoffset="0" id="secondsProgress"/>
+                    </svg>
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+             <h2 class="section-title reveal typewriter-container"> <span class="typewriter-text" data-text="Reception">Reception</span></h2>
+           
+            <div class="location-icon">
+                <i class="fas fa-location-dot" style="font-size:2.4rem; color:var(--gold-accent);"></i>
+            </div>
+            <p class="location-name" style="font-size:1.6rem; color:var(--text-dark);">Villa flamingo</p>
+            <p class="location-address" style="color:var(--text-dark);">Constantine sisaoui</p>
+
+             <div style="text-align: center; margin: 1.5rem 0 0.5rem;">
+                <button id="rsvpBtn" class="calendar-btn">
+             Rsvp
+                </button>
+           
+        </section>
+
+        <!-- ========== NOUVELLE SECTION DRESS CODE ========== -->
+      
+     
+    </div>
+
+    <!-- MODALE RSVP -->
+    <div class="rsvp-modal-overlay" id="rsvpOverlay">
+        <div class="rsvp-modal">
+            <button class="rsvp-modal-close" id="rsvpClose">&times;</button>
+            <h2>Rsvp</h2>
+           
+
+            <form class="rsvp-form" id="rsvpForm">
+                <!-- Clé Web3Forms (remplacez par votre clé) -->
+                <input type="hidden" name="access_key" value="dd378d8c-bece-47f0-9025-3dd3ee2390ce">
+                <!-- Redirection après envoi (optionnel) -->
+                <input type="hidden" name="redirect" value="">
+                <!-- Sujet du mail -->
+                <input type="hidden" name="subject" value="Nouvelle réponse RSVP - BAC Malek ">
+
+                <div class="form-group">
+                    <label for="guestName">Your name*</label>
+                    <input type="text" id="guestName" name="name" placeholder="" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Are you coming?*</label>
+                    <div class="rsvp-radio-group">
+                        <div class="rsvp-radio-option">
+                            <input type="radio" id="comingYes" name="attending" value="Absolutely , wouldn't miss it!" required>
+                            <label for="comingYes">Absolutely , wouldn't miss it!</label>
+                        </div>
+                        <div class="rsvp-radio-option">
+                            <input type="radio" id="comingNo" name="attending" value="Can't make it this time">
+                            <label for="comingNo">Can't make it this time</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Comments</label>
+                    <textarea id="comments" name="comments" rows="3" placeholder=""></textarea>
+                </div>
+
+                <button type="submit" class="rsvp-submit-btn">RSVP</button>
+            </form>
+
+            <div class="rsvp-confirmation" id="rsvpConfirmation">
+                <h3>Thank you !</h3>
+               
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            const hero = document.getElementById('heroScreen');
+            const mainContent = document.getElementById('mainContent');
+            let heroHidden = false;
+
+            const audio = document.getElementById('weddingMusic');
+            const musicToggle = document.getElementById('musicToggle');
+            const musicIconOff = document.getElementById('musicIconOff');
+            const musicIconOn = document.getElementById('musicIconOn');
+            let musicPlaying = false;
+
+            function playMusic() {
+                audio.play().then(() => {
+                    musicPlaying = true;
+                    musicIconOff.style.display = 'none';
+                    musicIconOn.style.display = 'block';
+                    musicToggle.classList.add('playing');
+                }).catch(e => console.log('Lecture automatique bloquée:', e));
+            }
+
+            window.toggleMusic = function() {
+                if (!heroHidden) return;
+                if (musicPlaying) {
+                    audio.pause();
+                    musicPlaying = false;
+                    musicIconOff.style.display = 'block';
+                    musicIconOn.style.display = 'none';
+                    musicToggle.classList.remove('playing');
+                } else {
+                    audio.play().then(() => {
+                        musicPlaying = true;
+                        musicIconOff.style.display = 'none';
+                        musicIconOn.style.display = 'block';
+                        musicToggle.classList.add('playing');
+                    }).catch(e => console.log(e));
+                }
+            };
+
+            function revealContent() {
+                if (heroHidden) return;
+                heroHidden = true;
+                playMusic();
+
+                hero.classList.add('hero-hidden');
+
+                setTimeout(() => {
+                    mainContent.classList.add('visible');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 350);
+
+                setTimeout(() => {
+                    hero.style.display = 'none';
+                }, 1100);
+
+                initPetals();
+                initScrollReveal();
+            }
+
+            hero.addEventListener('click', revealContent);
+            hero.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    revealContent();
+                }
+            });
+
+            function initTypewriterEffects() {
+                const typewriterElements = document.querySelectorAll('.typewriter-text');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !entry.target.classList.contains('typing-done')) {
+                            const el = entry.target;
+                            const text = el.getAttribute('data-text') || el.textContent;
+                            el.textContent = '';
+                            el.classList.remove('typing-done');
+                            
+                            let charIndex = 0;
+                            const typingSpeed = 45;
+                            
+                            function typeChar() {
+                                if (charIndex < text.length) {
+                                    el.textContent += text.charAt(charIndex);
+                                    charIndex++;
+                                    setTimeout(typeChar, typingSpeed + Math.random() * 30);
+                                } else {
+                                    el.classList.add('typing-done');
+                                }
+                            }
+                            
+                            setTimeout(typeChar, 300);
+                            observer.unobserve(el);
+                        }
+                    });
+                }, { threshold: 0.6, rootMargin: '0px 0px -30px 0px' });
+
+                typewriterElements.forEach(el => observer.observe(el));
+            }
+
+            function initPetals() {
+                const container = document.getElementById('particles');
+                if (!container) return;
+
+                const screenWidth = window.innerWidth;
+                let petalCount = 22;
+                if (screenWidth < 480) petalCount = 10;
+                else if (screenWidth < 768) petalCount = 14;
+                else if (screenWidth < 1024) petalCount = 18;
+
+                const petalMinSize = screenWidth < 480 ? 16 : 22;
+                const petalSizeRange = screenWidth < 480 ? 12 : 20;
+
+                for (let i = 0; i < petalCount; i++) {
+                    const petal = document.createElement('img');
+                    petal.src = 'fleur.png';
+                    petal.className = 'petal';
+                    petal.alt = '';
+                    petal.setAttribute('aria-hidden', 'true');
+                    petal.loading = 'lazy';
+                    petal.style.left = Math.random() * 100 + '%';
+                    petal.style.top = -(25 + Math.random() * 50) + 'px';
+                    petal.style.animationDuration = (7 + Math.random() * 9) + 's';
+                    petal.style.animationDelay = Math.random() * 11 + 's';
+                    petal.style.width = (petalMinSize + Math.random() * petalSizeRange) + 'px';
+                    container.appendChild(petal);
+                }
+            }
+
+            function initScrollReveal() {
+                const revealElements = document.querySelectorAll('.reveal');
+                if (!('IntersectionObserver' in window)) {
+                    revealElements.forEach(el => el.classList.add('revealed'));
+                    initTypewriterEffects();
+                    return;
+                }
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+                revealElements.forEach((el, index) => {
+                    el.style.transitionDelay = (index * 0.08) + 's';
+                    observer.observe(el);
+                });
+
+                setTimeout(initTypewriterEffects, 500);
+            }
+
+            // Countdown
+            const targetDate = new Date('2026-07-31T17:30:00+02:00').getTime();
+            const secondsProgress = document.getElementById('secondsProgress');
+            const circumference = 2 * Math.PI * 46;
+
+            function updateCountdown() {
+                const now = Date.now();
+                let distance = targetDate - now;
+                
+                if (distance < 0) {
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    if (secondsProgress) secondsProgress.style.strokeDashoffset = '0';
+                    return;
+                }
+                
+                document.getElementById('days').textContent = String(Math.floor(distance / (1000*60*60*24))).padStart(2,'0');
+                document.getElementById('hours').textContent = String(Math.floor((distance % (1000*60*60*24)) / (1000*60*60))).padStart(2,'0');
+                document.getElementById('minutes').textContent = String(Math.floor((distance % (1000*60*60)) / (1000*60))).padStart(2,'0');
+                
+                const seconds = Math.floor((distance % (1000*60)) / 1000);
+                document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+                
+                if (secondsProgress) {
+                    const progress = (seconds / 60) * circumference;
+                    secondsProgress.style.strokeDashoffset = circumference - progress;
+                }
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // ========== RSVP MODAL & WEB3FORMS ==========
+            const rsvpBtn = document.getElementById('rsvpBtn');
+            const rsvpOverlay = document.getElementById('rsvpOverlay');
+            const rsvpClose = document.getElementById('rsvpClose');
+            const rsvpForm = document.getElementById('rsvpForm');
+            const rsvpConfirmation = document.getElementById('rsvpConfirmation');
+
+            rsvpBtn.addEventListener('click', () => {
+                rsvpOverlay.classList.add('active');
+                rsvpForm.reset();
+                rsvpForm.style.display = 'block';
+                rsvpConfirmation.classList.remove('active');
+            });
+
+            rsvpClose.addEventListener('click', () => {
+                rsvpOverlay.classList.remove('active');
+            });
+
+            rsvpOverlay.addEventListener('click', (e) => {
+                if (e.target === rsvpOverlay) rsvpOverlay.classList.remove('active');
+            });
+
+            rsvpForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(rsvpForm);
+                try {
+                    const response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        rsvpForm.style.display = 'none';
+                        rsvpConfirmation.classList.add('active');
+                        setTimeout(() => {
+                            rsvpOverlay.classList.remove('active');
+                        }, 3000);
+                    } else {
+                        alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+                    }
+                } catch (error) {
+                    console.error(error);
+                    alert('Erreur réseau. Veuillez vérifier votre connexion.');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
